@@ -40,11 +40,16 @@
             this.textBoxPlaka = new System.Windows.Forms.TextBox();
             this.textBoxKalkıs = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // map
             // 
+            this.map.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.map.Bearing = 0F;
             this.map.CanDragMap = true;
             this.map.EmptyTileColor = System.Drawing.Color.Navy;
@@ -65,14 +70,14 @@
             this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.map.ShowTileGridLines = false;
-            this.map.Size = new System.Drawing.Size(863, 471);
+            this.map.Size = new System.Drawing.Size(894, 487);
             this.map.TabIndex = 0;
             this.map.Zoom = 0D;
             this.map.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(this.map_OnMarkerClick);
             // 
             // btnList
             // 
-            this.btnList.Location = new System.Drawing.Point(634, 489);
+            this.btnList.Location = new System.Drawing.Point(11, 2);
             this.btnList.Name = "btnList";
             this.btnList.Size = new System.Drawing.Size(241, 30);
             this.btnList.TabIndex = 15;
@@ -83,7 +88,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(614, 521);
+            this.label7.Location = new System.Drawing.Point(7, 31);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(130, 16);
             this.label7.TabIndex = 16;
@@ -92,7 +97,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(631, 553);
+            this.label8.Location = new System.Drawing.Point(10, 55);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(42, 16);
             this.label8.TabIndex = 17;
@@ -101,7 +106,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(631, 637);
+            this.label9.Location = new System.Drawing.Point(10, 139);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(38, 16);
             this.label9.TabIndex = 18;
@@ -110,7 +115,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(631, 610);
+            this.label10.Location = new System.Drawing.Point(10, 112);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(43, 16);
             this.label10.TabIndex = 19;
@@ -119,7 +124,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(631, 581);
+            this.label11.Location = new System.Drawing.Point(10, 83);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(61, 16);
             this.label11.TabIndex = 20;
@@ -128,7 +133,7 @@
             // textBoxTip
             // 
             this.textBoxTip.Enabled = false;
-            this.textBoxTip.Location = new System.Drawing.Point(712, 575);
+            this.textBoxTip.Location = new System.Drawing.Point(91, 77);
             this.textBoxTip.Name = "textBoxTip";
             this.textBoxTip.Size = new System.Drawing.Size(163, 22);
             this.textBoxTip.TabIndex = 21;
@@ -136,7 +141,7 @@
             // textBoxVarıs
             // 
             this.textBoxVarıs.Enabled = false;
-            this.textBoxVarıs.Location = new System.Drawing.Point(712, 631);
+            this.textBoxVarıs.Location = new System.Drawing.Point(91, 133);
             this.textBoxVarıs.Name = "textBoxVarıs";
             this.textBoxVarıs.Size = new System.Drawing.Size(163, 22);
             this.textBoxVarıs.TabIndex = 22;
@@ -144,7 +149,7 @@
             // textBoxPlaka
             // 
             this.textBoxPlaka.Enabled = false;
-            this.textBoxPlaka.Location = new System.Drawing.Point(712, 547);
+            this.textBoxPlaka.Location = new System.Drawing.Point(91, 49);
             this.textBoxPlaka.Name = "textBoxPlaka";
             this.textBoxPlaka.Size = new System.Drawing.Size(163, 22);
             this.textBoxPlaka.TabIndex = 23;
@@ -152,47 +157,59 @@
             // textBoxKalkıs
             // 
             this.textBoxKalkıs.Enabled = false;
-            this.textBoxKalkıs.Location = new System.Drawing.Point(712, 603);
+            this.textBoxKalkıs.Location = new System.Drawing.Point(91, 105);
             this.textBoxKalkıs.Name = "textBoxKalkıs";
             this.textBoxKalkıs.Size = new System.Drawing.Size(163, 22);
             this.textBoxKalkıs.TabIndex = 24;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 495);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 511);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(596, 153);
+            this.dataGridView1.Size = new System.Drawing.Size(623, 161);
             this.dataGridView1.TabIndex = 25;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.btnList);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.textBoxVarıs);
+            this.panel1.Controls.Add(this.textBoxKalkıs);
+            this.panel1.Controls.Add(this.textBoxTip);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.textBoxPlaka);
+            this.panel1.Location = new System.Drawing.Point(645, 511);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(261, 161);
+            this.panel1.TabIndex = 26;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(891, 668);
+            this.ClientSize = new System.Drawing.Size(918, 684);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBoxKalkıs);
-            this.Controls.Add(this.textBoxPlaka);
-            this.Controls.Add(this.textBoxVarıs);
-            this.Controls.Add(this.textBoxTip);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.btnList);
             this.Controls.Add(this.map);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -210,6 +227,7 @@
         private System.Windows.Forms.TextBox textBoxPlaka;
         private System.Windows.Forms.TextBox textBoxKalkıs;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
