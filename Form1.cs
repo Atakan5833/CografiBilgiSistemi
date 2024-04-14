@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,9 @@ namespace CografiBilgiSistemi
         //heryerde gözükmesi için burda tanımladım
         GMapOverlay katman1;
         List<Araclar> list;
+
+        //veritabanı bağlantısı
+        SqlConnection baglanti = new SqlConnection(@"Data Source=F58\SQLEXPRESS;Initial Catalog=Projeler;Integrated Security=True;Encrypt=False");
         public Form1()
         {
             InitializeComponent();
@@ -28,13 +32,50 @@ namespace CografiBilgiSistemi
         }
 
         private void aracListesiniOlustur()
-        {
+        { 
             list = new List<Araclar>();
-            list.Add(new Araclar("34ECE03", "Tır", "Mersin", "Sivas", new PointLatLng(38.22, 35.02)));
-            list.Add(new Araclar("34ECE09", "Tır", "Mersin", "İstanbul", new PointLatLng(40.46, 32.37)));
-            list.Add(new Araclar("34ECE58", "Tır", "İstanbul", "Eskişehir", new PointLatLng(39.93, 29.95)));
-            list.Add(new Araclar("34ECE33", "Tır", "İstanbul", "Çanakkale", new PointLatLng(40.56, 26.77)));
+            // Veritabanından DB ADO.NET ile çekilmesi
+            try
+            {
+                baglanti.Open();
+                string tabloCumlesi = "SELECT Plaka,Tip,[From],[To] ,Enlem,Boylam FROM Araclar";
+                // veritabanıyla etkileşimde bulunmak için bir araçtır ve veritabanı işlemlerini kolaylaştırır.
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(tabloCumlesi , baglanti);
+                DataTable dataTable = new DataTable();
+                //tabloya dataadapterden gelenleri doldurma
+                sqlDataAdapter.Fill(dataTable);
+                //veritabanından birşeyler geldiyse eğer datagridview in içine doldurmasını söylüyorum
+                if(dataTable.Rows.Count > 0 )
+                {
+                    dataGridView1.DataSource = dataTable;
+                }
+                for( int i = 0; i < dataTable.Rows.Count; i++ ) {
+                    list.Add(new Araclar(dataTable.Rows[i][0].ToString(),
+                        dataTable.Rows[i][1].ToString(),
+                        dataTable.Rows[i][2].ToString(),
+                        dataTable.Rows[i][3].ToString(),
+                        new PointLatLng(Convert.ToDouble(dataTable.Rows[i][4].ToString()),
+                        Convert.ToDouble(dataTable.Rows[i][4].ToString())
 
+                        )));
+                      
+                    //Console.WriteLine(dataTable.Rows[i][0].ToString());
+                 /*   list.Add(new Araclar(dataTable.Rows[i][0].ToString(),
+                                         dataTable.Rows[i][1].ToString(),
+                                         dataTable.Rows[i][2].ToString(),
+                                         dataTable.Rows[i][3].ToString(),
+                                         new PointLatLng(Convert.ToDouble(dataTable.Rows[i][4].ToString()),
+                                                         Convert.ToDouble(dataTable.Rows[i][5].ToString())));*/
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("DB bağlantı sırasında bir hata oluştu \n" + ex.Message); 
+            }
+            finally { 
+                if (baglanti != null)
+                    baglanti.Close(); }
         }
 
         private void initializeMap()
@@ -56,7 +97,7 @@ namespace CografiBilgiSistemi
             //ilk olarak da yeni oluşturduğumuz katmanı harita nesnemize eklemeliyiz
             map.Overlays.Add(katman1);
         }
-
+        /*
         private void button1_Click(object sender, EventArgs e)
         {
             //enlem ve boylamı alırken double sayı yapıtım
@@ -83,8 +124,8 @@ namespace CografiBilgiSistemi
             //!!!markeri önce eklersek yanlış yere koyabilir.
             katman1.Markers.Add(marker);    
         }
-
-
+        */
+        /*
         private void btnHarita2_Click(object sender, EventArgs e)
         {
             //alıcağımız lokasyon bilgiler MARKER 2
@@ -110,7 +151,7 @@ namespace CografiBilgiSistemi
             katman1.Markers.Add(marker2);
 
         }
-
+        */
         //markera tıklandığında ekranda çıktısı alma
         private void map_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
